@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 1 - Implementación</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Clase 1 - Implementación</h1>
+    <button><a href="#">Ejemplo 1</a></button>
+
+    <h2>Premisas de React</h2>
+    <h4>Primera Premisa: Virtual DOM</h4>
+    <p>Es una representación virtual de la interfaz de usuario que se mantiene en memoria y en sintonía con el DOM Real</p>
+
+    <h4>Segunda premisa: Flujo de datos unidireccional</h4>
+    <p>Cuando genero un evento en una aplicación con <b>Vanilla JS</b>, debe bajar el dato hacia el nodo y luego subir cuando se genera un evento. <br> Con <b>React JS</b>, accedo directamente al nodo que maneja los elementos que estoy trabajando y no al nodo raíz.</p>
+    <span>Ejemplo: Si trabajo en un carrito: El botón carrito involucrará sólo a los elementos que se afectan directamente y modifico sólamente el DOM del carrito</span>
+
+    <h3>Proceso</h3>
+        <ul>
+                <li> React ejecuta un algoritmo de drifting que identifica lo que ha cambiado</li>
+                <li>EL segundo paso es la reconciliación, donde se actualiza el DOM con lso resultados de diff</li>
+                <li>Esto <b>no se programa</b>, sucede automáticamente con el framework</li>
+        </ul>
+    <h2>¿Qué es NODE js?</h2>
+    <p>Hace algunos años, el backend se manejaba con PHP y JAVA, y surge la idea de generar una aplicación con un sólo lenguaje, en este caso JS. El problema es que JS fue desarrollado sólo para front-end. <br>Node JS es un entorno de ejecución de JS, con el que puedo desarrollar una aplicación completa.</p>
+    <span>Versión LTS: Es una versión de larga duración, mientras que la versión Actual es la versión que incorpora los últimos cambios. <b>La versión LTS es la más recomendada dado su estabilidad.</b></span>
+
+    <h4>¿Qué es Node Packager Manager? (NPM)</h4>
+    <p>Nodejs implica la instalación de módulos nuevos (librerias), NPM viene automáticamente con Node y se encarga de revisar este tipo de instalaciones. para instalar la última versión.</p>
+    <code>npm install -g npm@latest</code>
+
+    <h2>Instalar React</h2>
+    <p>Es necesario instalar <b>CLI</b>, que es la interfaz de línea de comandos. Para proceder, debes posicionarte en la carpeta donde se instalará la aplicación. Si se instala correctamente, aparecerá el mensaje: <b>Happy hacking!</b>, si tienes inconvenientes en la instalación, no es recomendable volver a ejecutar el comando, hay que investigar el error. 
+
+    <code>npx create-react-app nombre-app</code></p>
+
+    <h2>Aplicación de React</h2>
+    <p>Toda aplicación de React, tiene sólo 1 HTML, donde el react, cambia y modifica ese HTML, esto se le conoce como: <b>Single page application</b></p>
+
+    <h4>¿Qué se instaló al crear la app?</h4>
+    <p>Se instala la carpeta node_modules, que no se sube al repositorio.</p>
+
+
+    <hr>
+    <h4><a href="../index.html">Volver al Index</a></h4>
+    <hr>
+</body>
+</html>
