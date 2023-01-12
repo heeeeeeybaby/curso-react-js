@@ -42,9 +42,28 @@
     <p>Toda aplicación de React, tiene sólo 1 HTML, donde el react, cambia y modifica ese HTML, esto se le conoce como: <b>Single page application</b></p>
 
     <h4>¿Qué se instaló al crear la app?</h4>
-    <p>Se instala la carpeta node_modules, que no se sube al repositorio.</p>
+    <ul>
+        <li>Se instala la carpeta node_modules, que no se sube al repositorio.</li>
+        <li>Se instalan los scripts, para trabajar con el proyecto, como npm start.</li>
+        <li>package-lock.json, que indica los problemas de seguridad de la aplicación.</li>
+        <li>Carpeta pública: Aparece el ícono, favicon, el único del html y las imágenes del logotipo que se muestran en la página por defecto, un manifiesto, donde se declaran las imágenes</li>
+        <li>La carpeta SRC es la más importante y contiene: 
+            <ul>
+                <li>setupTest: </li>
+                <li>Reportes: Análisis para ver metricas y poder hacer cambios en la app.</li>
+                <li>Logo en formato SVG</li>
+                <li>Index.js: Es la conexión entre la carpeta pública y renderea la aplicación (envía código y lo pasa al html)</li>
+                <li>App.js: es donde aparece la aplicación, este archivo se </li>
+            </ul>
+            <p>index.css son los estilos generales, se importa al css y se ejecuta ahí mismo con <code>import</code></p>
+            <p>app.css son los estilos aplicados a los componentes</p>
+        </li>
+    </ul>
 
+<span>Los componentes y su css, van con mayúsculas, el resto es con minúsculas.</span>
 
+<h2>Limpiando la app por defecto</h2>
+<p>En este curso no veremos reporte ni test, por lo que los archivos, app.test.js, setupTest.js y reportWebVitals.js</p>
     <hr>
     <h4><a href="../index.html">Volver al Index</a></h4>
     <hr>
