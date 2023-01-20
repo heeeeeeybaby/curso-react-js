@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 3 - Componentes</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Clase 3 - Componentes</h1>
+    <h2>Diseño Modular</h2>
+    <p>La idea es generar pequeños módulos y luego conectarlos a la aplicación. La interfaz se ve igual, pero es más fácil detectar errores y trabajar con un equipo más grande de personas.</p>
+
+    <h2>Dos tipos de componentes</h2>
+    <p>Pueden recibir propiedades y tienen la capacidad de hacer render de un único elemento. Un componente basado en funciones es más liviano por el uso de memoria.</p>
+    <h4>Componentes basados en clases</h4> que es complejo pero completo, se utilizaba en un comienzo y funciona heredando propiedades de otras clases padre.
+    <h4>Componentes basados en funciones</h4> es lo más común, y utiliza los hooks para poder tener propiedades en las funciones. 
+
+    <h3>¿Cómo reciben información estos componentes?</h3>
+    <p>Un componente recibe información mediante propiedades, pasando como parámetros de un componente padre a un hijo. Lo que hace que la información siga un flujo <b>unidireccional</b></p>
+    <h4>Componentes de Presentación</h4>
+    <p>Son componentes que simplemente muestran información pero que no incorporan mayor lógica, o una funcionabilidad específico. No tienen dependencia por una base de datos, ni estado (no tienen una variable asignada, es decir algo cuyo valor cambiará)</p>
+
+
+    <h2>Composición de componentes</h2>
+    <h3>Componente Contenedor</h3>
+    <p>Es un componente que contiene a otros y proporcionarles la información de las propiedades y tienen estado, por ejemplo: Un navbar</p>
+    <h3>Componentes Hijos (Children)</h3>
+    <p>Un elemento hijo se le envía la información a través de un componente padre.</p>
+
+    <h2>Implementación de los componentes</h2>
+    <p>Al crear una estructura de componentes se debe crear una carpeta llamada <b>components</b> dentro de la carpeta <b>src</b> donde se ubiquen todos los componentes y luego en el archivo <code>index.js</code> se debe modificar </p>
+    <ul>
+        <li>Para retornar más de un elemento, debo colocarlos dentro de un contenedor <code>div</code>, cuando ese <code>div</code> no es necesario, se ocupa un <b>fragmento</b>, que es como la etiqueta div pero vacía</li>
+    </ul>
+    <p>Para crear un componentes se utiliza la siguiente estructura: 
+        <span>
+            <code>const CartWidget = ({cantCarrito}) => {
+                <br> return(
+                <br> &#60;>
+                <br> &#60;button className="btn btn-dark">Carrito&#60;/button>
+                <br>&#60;p>{cantCarrito}&#60;/p>
+                <br> &#60;/>
+                <br> );
+                <br> }
+                <br> export default CartWidget;
+            </code>
+        </span>
+    </p>
+    <hr>
+    <h4><a href="../index.html">Volver al Index</a></h4>
+    <hr>
+</body>
+</html>
