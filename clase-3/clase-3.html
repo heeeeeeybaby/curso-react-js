@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +8,37 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h1>Clase 3 - Componentes</h1>
+    <h1>Clase 3 - Componentes I</h1>
     <h2>Diseño Modular</h2>
     <p>La idea es generar pequeños módulos y luego conectarlos a la aplicación. La interfaz se ve igual, pero es más fácil detectar errores y trabajar con un equipo más grande de personas.</p>
+    <ul>
+        <li>El diseño modular me permite crear un componente cuya estructura se repita, mientras que su contenido pueda variar</li>
+        <li>Puede mejoraar el rendimiento sobre Vanilla JS, para aplicaciones más grandes.</li>
+        <li>Permite separar responsabilidades, <b>cada componente debe tener una única tarea</b></li>
+    </ul>
 
-    <h2>Dos tipos de componentes</h2>
-    <p>Pueden recibir propiedades y tienen la capacidad de hacer render de un único elemento. Un componente basado en funciones es más liviano por el uso de memoria.</p>
-    <h4>Componentes basados en clases</h4> que es complejo pero completo, se utilizaba en un comienzo y funciona heredando propiedades de otras clases padre.
-    <h4>Componentes basados en funciones</h4> es lo más común, y utiliza los hooks para poder tener propiedades en las funciones. 
+    <h2>Diseño de componentes</h2>
+    <p>Existen 2 tipos de componentes, <b>basados en clases</b> y <b>basados en funciones</b> y tienen la capacidad de hacer render de un <b>único elemento.</b></p>
 
-    <h3>¿Cómo reciben información estos componentes?</h3>
-    <p>Un componente recibe información mediante propiedades, pasando como parámetros de un componente padre a un hijo. Lo que hace que la información siga un flujo <b>unidireccional</b></p>
+    <ul>
+        <li>Un compomente recibe información, ejemplo: Un componente producto, tiene que recibir la información "nombre de producto"</li>
+        <li>Son <b>reutilizables</b>, se pueden implementar en diferentes partes del proyecto</li>
+        <li>Las propiedades son la forma que tiene React para pasar parámetros de un componente superior a sus componentes hijos. Lo que hace que la información siga un flujo <b>unidireccional</b></li>
+    </ul>
+
+    <h4>Componentes basados en clases</h4> Se genera un componente (componente <code>component</code> ) medinante clases, que a su vez podía incluir nuevas funcionalidades heredando propiedades de otras clases padre.
+    <h4>Componentes basados en funciones</h4> Hoy React se trabaja en base a funciones. Estas pueden recibir propiedades (a través de los hooks) Un componente basado en funciones es más liviano por la ejecución de memoria.
+
+    <span>La diferencia entre una clase y una función es que <b>la clase puede tener propiedades</b>, mientras que la función no. Las variables creadas dentro de una función <b>no permanecerán en el tiempo</b>, estas desaparecen una vez ejecutada la función.</span>
+
+    <h2>Patrones de diseño</h2>
+    <p>Se programa de acuerdo a la funcionabilidad del componente</p>
+
     <h4>Componentes de Presentación</h4>
     <p>Son componentes que simplemente muestran información pero que no incorporan mayor lógica, o una funcionabilidad específico. No tienen dependencia por una base de datos, ni estado (no tienen una variable asignada, es decir algo cuyo valor cambiará)</p>
 
+    <h4>Componente de funcionabilidad</h4>
+    <p>Son componentes que sí incorporan una lógica, como por ejemplo un navbar, un componente producto, etc y sí tienen un estado. </p>
 
     <h2>Composición de componentes</h2>
     <h3>Componente Contenedor</h3>
@@ -30,11 +47,16 @@
     <p>Un elemento hijo se le envía la información a través de un componente padre.</p>
 
     <h2>Implementación de los componentes</h2>
-    <p>Al crear una estructura de componentes se debe crear una carpeta llamada <b>components</b> dentro de la carpeta <b>src</b> donde se ubiquen todos los componentes y luego en el archivo <code>index.js</code> se debe modificar </p>
-    <ul>
-        <li>Para retornar más de un elemento, debo colocarlos dentro de un contenedor <code>div</code>, cuando ese <code>div</code> no es necesario, se ocupa un <b>fragmento</b>, que es como la etiqueta div pero vacía</li>
-    </ul>
-    <p>Para crear un componentes se utiliza la siguiente estructura: 
+    <p>En la carpeta components sólo se encontrarán los componentes y el proceso de implementación de un diseño modular es el siguiente:</p>
+    <ol>
+        <li>Se crea una carpeta llamada <b>components</b> y el archivo <code>App.jsx</code> se mueve dentro de ella</li>
+        <li>En el <code>index.js</code> hay que cambiar la importación del archivo <code>App.jsx</code></li>
+        <li>Por cada componente se genera una carpeta con el nombre <code>capitalized</code></li>
+        <li>Si el componente utiliza muchos estilos propios, que no se utilicen en otros componentes, es recomendable crear una hoja de estilos propia para ese componente, que va dentro de la carpeta. </li>
+
+    </ol>
+    <h4>Crear un componente</h4>
+    <p><b>App.jsx</b> es el <b>componente principal</b>, esto quiere decir que todos los demás componentes son llamados desde ese principal. <br> Para crear un componentes se utiliza la siguiente estructura: 
         <span>
             <code>const CartWidget = ({cantCarrito}) => {
                 <br> return(
@@ -45,9 +67,23 @@
                 <br> );
                 <br> }
                 <br> export default CartWidget;
-            </code>
+            </code> <br> <br>
+            También se puede generar en VSC con la sigla <code>rfc</code>
         </span>
+    <br>
+        Para retornar más de un elemento, debo colocarlos dentro de un contenedor <code>&#60;div></code>, cuando no sea necesario, se ocupa un <b>fragmento</b>, que es <code>&#60;>&#60;/></code>
     </p>
+    <h2>Propiedades para los Componentes</h2>
+    <p>Es posible que un componente contenga un valor que provenga de su componente padre para mostrar información que puede cambiar, por ejemplo: la cantidad de elementos dentro del carrito. La sintaxis para eso es: </p>
+    <code>
+        <br> const CartWidget = ({cantidadCarrito}) => {
+            <br> return ());
+        <br> }
+    </code>
+    <p>Para pasarle información, al llamar al componente se vería así:</p>
+    <code>
+        &#60;CartWidget cantidadCarrito={10}/>
+    </code>
     <hr>
     <h4><a href="../index.html">Volver al Index</a></h4>
     <hr>

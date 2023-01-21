@@ -3,10 +3,10 @@ import CartWidget from './CartWidget/CartWidget';
 import Navbar from "./Navbar/Navbar"
 function App() {
   return (
-    <>
-        <Navbar/>
-      <CartWidget cantCarrito={10}/>
-    </>
+    <div>
+      <Navbar/>
+      <CartWidget cantidadCarrito={10}/>
+    </div>
 
   );
 }

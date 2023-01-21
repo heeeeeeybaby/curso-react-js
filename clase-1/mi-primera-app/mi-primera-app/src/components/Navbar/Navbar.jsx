@@ -1,6 +1,6 @@
-import CartWidget from "../CartWidget/CartWidget.jsx"
-import Categorias from "./Categorias/Categorias.jsx"
-import Secciones from "./Secciones/Secciones.jsx"
+import CartWidget from "../CartWidget/CartWidget";
+import Categorias from "../Navbar/Categorias/Categorias";
+import Secciones from "./Secciones/Secciones";
 const Navbar = () =>{
     return(
         <nav className="navbar navbar-expand-lg bg-light">
@@ -12,14 +12,9 @@ const Navbar = () =>{
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                     <Secciones/>
-                    <li className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Categorías
-                        </a>
                     <Categorias/>
-                    </li>
+                    <CartWidget cantidadCarrito={5}/>
                 </ul>
-                <CartWidget cantCarrito={5}/>
             </div>
         </div>
         </nav>

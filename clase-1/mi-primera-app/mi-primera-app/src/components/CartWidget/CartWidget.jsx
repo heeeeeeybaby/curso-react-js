@@ -1,9 +1,10 @@
-const CartWidget = ({cantCarrito}) => {
-    return(
-        <>
-            <button className="btn btn-dark">Carrito</button>
-            <p>{cantCarrito}</p>
-        </>
+const CartWidget = ({cantidadCarrito}) => {
+    return (
+        <div>
+        <button className="btn btn-dark">Carrito {cantidadCarrito}
+        </button>
+        </div>
     );
 }
+
 export default CartWidget;
