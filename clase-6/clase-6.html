@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 6 - Comunicación API</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Clase 6 - Comunicación API</h1>
+
+    <h2>Modelo cliente-servidor</h2>
+    <p>Supone un cliente conectado a un servidor mediante un PC, smartphone o laptop. Cada uno de estos dispositivos se identifica mediante un ID y se les envía la información.</p>
+    <ul>
+        <li>Supone permisos de acuerdo al usuario</li>
+        <li>El cliente inicia solicitando información, el servidor envía la respuesta y con ello, el fin de la comunicación</li>
+    </ul>
+
+    <h2>Push</h2>
+    <p>Es una forma de poder trabajar, donde no se solicita la información, sino que el cliente se suscribe y le envían <b>automáticamente la información</b></p>
+    <ol>
+        <li>El cliente se suscribe</li>
+        <li>El servidor elige el momento del inicio de la </li>
+        <li>El servicio se le provee al cliente</li>
+    </ol>
+
+    <h2>Polling</h2>
+    <p></p>
+    <span>Ejemplo de Método polling, el sitio criptoya.com, donde los valores se van actualizando y se hace una consulta al servidor cada una cantidad de minutos definido.</span>
+
+    <h2>Requests via HTTP/S</h2>
+    <p>Vienen a ayudarnos a realizar una solicitud a un servidor, nos permiten establecer un protocolo de transferencia definido por:</p>
+
+    <h4>URL</h4>
+    <p>Es la dirección web a la que se puedes conectar, que tiene varios métodos:</p>
+    <ul>
+        <li>GET: Es un método de consulta de información, como por ejemplo: <code>fetch</code></li>
+        <li>POST: Es un método de creación de contenido</li>
+        <li>PUT: Se utiliza para editar la data, actualizar el stock por ejemplo. Actualizar completamente un objeto. </li>
+        <li>PATCH: para alterar parcialmente, es decir, sólo el stock por ejemplo</li>
+        <li>DELETE: Para eliminar </li>
+    </ul>
+
+    <h4>Query Params</h4>
+    <p>Está dentro de la URL, es una especificación en las consultas a un servidor, <i>no lo utilizaremos en esta aplicación ya que lo haremos a través de ID</i></p>
+
+    <h4>URL Params / Segments</h4>
+    <p>Son la especificación dentro de la URL que identifican las secciones ejemplo: <code>coderhouse.com/alumnos/asistencia</code></p>
+
+    <h4>Body</h4>
+    <p>Se utiliza para transferir piezas de información entre cliente y el servidor</p>
+
+    <h4>Headers</h4>
+    <p>Se usa para definir las respuestas soportadas, requeridas, información extra, cookies, etc</p>
+
+    <h2>Notas para el Proyecto</h2>
+    <ul>
+        <li>Para manejar el formato del precio para que se vea de acuerdo a nuestro formato se agrega como: <code>new Int1.NumberFormat('de-DE')</code></li>
+        <li>En las URL, siempre parte desde la carpeta public</li>
+    </ul>
+
+    <hr>
+    <h4><a href="../index.html">Volver al Index</a></h4>
+    <hr>
+</body>
+</html>

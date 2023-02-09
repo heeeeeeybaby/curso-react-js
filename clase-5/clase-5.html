@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 5 - Promesas, Asincronía y MAP</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Clase 5 - Promesas, Asincronía y MAP</h1>
+    <h2>Promise (Promesas)</h2>
+    <p>Una promesa es un objeto que permite prepresentar y seguir el ciclo de vida de una tarea/operación. La idea de utilizar promesas es hacerlo de manera <b>sincrónica</b>, es decir, una vez que se termina una operación, sigue con la siguiente, es lineal. La utilización de una promesa se realiza de la siguiente manera; </p>
+
+    <span>
+        <code>
+            const task = new Promise ((resolve, reject) => {
+            <br>    // Tarea sincrónica
+            <br> resolve(true);
+            <br> });
+            <br> task.then(result => {
+            <br>    console.log(result);
+            <br> });
+        </code>
+    </span>
+
+    <h4>Tip: Estructura del componente</h4>
+    <p>Es posible reemplazar el <code>export default Componente;</code> utilizando lo siguiente:</p>
+    <code>
+        <br> export const Dolar =() => {
+           <br> return(); 
+        <br> }
+    </code>
+    <p>Y se llamaría así: <code>import { Dolar } from './'
+    </code></p>
+    
+    <h2>Generar promesas de forma asincrónica</h2>
+    <p>Cuando utilizamos promesas con asincronismo, <b>no sé cuánto tiempo va a tardar</b>, por lo que no puedo definir un tiempo.</p>
+
+    <span>
+        <p>Comienzo la escritura del componente:</p>
+        <code>
+                export const Dolar = () =>{
+        </code>
+        <p>Llamo al hook <b>useState</b></p>
+        <code>const [dolar, setDolar] = useState([])</code>
+        <p>Voy a buscar la información desde la API de CriptoYa</p>
+        <code>fetch('https://criptoya.com/api/dolar')</code>
+                
+                
+                
+                // Como una promesa asincrónica no tiene un tiempo determinado, utilizo then.
+                .then(response => response.json()) //conversión de datos
+                .then(dolar => console.log(dolar))
+                .catch(error => console.error(error))
+                .then(dolar =>{
+                    const{blue, oficial, solidario, mep} = dolar; 
+                    console.log(blue, oficial, solidario, mep); 
+                })
+                return(
+                    &#60;>
+                    &#60;/>
+                );
+            }
+        </code>
+    </span>
+
+    <h5><code>React.StrictMode</code></h5>
+    <p>Es un modo estricto que de alguna manera, previene grandes errores, por lo que la consulta en consola se verá 2 veces. Es recomendable utilizarlo cuando estamos partiendo con el código</p>
+
+    <h2>ItemListContainer</h2>
+    <p>Como está consultando una json, es muy pesada la tarea de consultar </p>
+    <h4>ItemList</h4>
+    <p>Este componente recibe el array de productos y entrega</p>
+    <hr>
+    <h4><a href="../index.html">Volver al Index</a></h4>
+    <hr>
+</body>
+</html>

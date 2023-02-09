@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 9 - Renderizado Condicional</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Clase 9 - Renderizado Condicional</h1>
+    <h2>Rendering Condicional</h2>
+    <p>El render de cierta parte de la aplicación está sujeto a una condición, que se evalua y gatilla una visualización específica. Por ejemplo: Si el carrito está vacío => Aparecerá un mensaje que diga: "Tu carrito está vacío", de lo contrario, se muestran los productos.</p>
+    <h3>Técnicas de rendering condicional</h3>
+    <h4>Retornar según una condición lógica</h4>
+    <p>Utilizando un if, que tiene una complejidad de 6 según Codemetrics.</p>
+
+    <h4>Condición Lógica</h4>
+    <p>Va dentro de un fragment y utiliza una constante para evaluar.</p>
+    <span class="note"><code>
+        <br>const condLogica = true; 
+        <br>return(
+            <br>{condLogica && &#60;p>Es verdadero{condLogica && &#60;p>Es verdadero&#60;/p>}; 
+            <br>{!condLogica && &#60;p>Es falso&#60;/p>}; 
+        ); 
+        </code>
+    </span>
+    <h4>Operador Ternario</h4>
+    <p>Es la forma más eficiente de hacerlo y su complejidad es mejor. </p>
+
+    <h3>Renderizar componentes estáticos</h3>
+    <p>La idea es poder optimizar proceso de rendering teniendo en cuenta aquellos elementos que no serán modificados como por ejemplo, el footer de una web. Por lo que es posible utilizar la opción de guardar <b>en memoria de la aplicación</b> para alivianar la cantidad de cargo</p>
+    <h4>React Memo</h4>
+    <p>Sólo es necesario envolver el componente que se guardará en memoria en <code>React.memo</code> de la siguiente forma:</p>
+    <code>
+        <br>const Categorias = React.memo(() =>
+        <br>{
+            <br>return();
+        <br> })
+    </code>
+    <hr>
+    <h4><a href="../index.html">Volver al Index</a></h4>
+    <hr>
+</body>
+</html>

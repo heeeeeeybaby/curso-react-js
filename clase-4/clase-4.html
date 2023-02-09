@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 4 - Componentes II</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1>Clase 4 - Componentes II</h1>
+    <h2>Anatomía de un componente</h2>
+    <p>Se componen de 4 partes: <b>Props, State, DOM Sync y Lifecycle</b></p>
+    <h4>Propiedades (Props)</h4>
+    <p>Estas pueden ser un booleano, string o incluso un componente como propiedad. También es posible enviar un objeto. Se envían de componente padre a componente hijo.</p>
+
+    <h4>State o Estado</h4>
+    <p>Las clases poseen un estado. Es una variable o un valor que permanece una vez ejecutada la clase. <b>Los atributos</b> permanecen una vez ejecutados. Ej: <code>this.nombre = Francisco;</code><br>Ahora bien, nosotros trabajaremos con funciones, lo que plantea el inconveniente: <b>El estado no se conserva al ejecutarse la función, puesto que no tiene propiedades para implementar.</b></p>
+    <span>Las funciones viven únicamente dentro del tiempo en que son ejecutadas.</span>
+
+    <h4>¿Cómo guardo datos con funciones?</h4>
+    <p>Los <b>Hooks de React</b> es una herramienta que viene por defecto con React y nos permite  tomar cuestiones de las clases (como el estado) e implementarlo en una función</p>
+    <span>Los hooks permiten trabajar utilizando el estado y el ciclo de vida sobre una función, sin perder la referencia. <b>No es un reemplazo del localStorage</b></span>
+
+    <h2>Hooks de React</h2>
+    <p> Existen muchos Hooks en la documentación de React, pero utilizaremos: <code>UseState, UseEffect, UseRef, UseMemo, UseContext, Params</code>
+    </p>
+
+    <h4>UseState</h4>
+    <p>Para ejemplificar el uso de <code>UseState</code> generaremos un <b>counter</b>, cuya funcionalidad será la de tener un botón que sume y uno que reste que actualice una constante que arranca en 0 y que puede aumentar o disminuir con el uso de los botones.</p>
+    <span>No es posible consultar un botón antes de que exista, por lo que sólo sería posible consultarlo mediante <code>getElementById</code> desde el componente padre, es decir desde <code>App.jsx</code> lo que lo hace <b>inviable</b></span>
+    <ol>
+        <li>Nueva carpeta de componente llamada: <b>Counter</b></li>
+        <li>Nuevo archivo de componente: <code>Counter.jsx</code></li>
+        <li>Construimos el esqueleto del contador que sería: <br>
+            <code>
+                const valor = 0; 
+            <br>return(
+                    <br>&#60;>
+                    <br>&#60;button>+&#60;/button>
+                    <br>{valor}
+                    <br>&#60;button>-&#60;/button>
+                    <br>&#60;/>
+                <br>); 
+            </code>
+        </li>
+        <li>Para agregar los eventos se hace vía <b>elementos en línea</b> por ejemplo: <br><br>
+        <code>
+            &#60;button onClick={()=> <br> console.log("Hola desde el evento")}>
+            <br>
+        </code><br>Estos elementos en línea no aparecen en el código que se visualiza en el browser porque el JSX hace una <b>transpilación</b> a HTML, por lo que en ese proceso se borra la referencia al evento</li>
+        <li>En el evento <code>onClick{()}</code> es posible consultar por el evento agregándolo como parámetro, ej: <code>onClick{(e) => console.log(e.target)}</code> </li>
+        <li>Con lo anterior es posible aplicarlo al esqueleto del contador: <br>
+            <code>
+                const valor = 0; 
+            <br>return(
+                    <br>&#60;>
+                    <br>&#60;button onClick{(e) => console.log(e.target)}> + &#60;/button>
+                    <br>{valor}
+                    <br>&#60;button onClick{(e) => console.log(e.target)}> - &#60;/button>
+                    <br>&#60;/>
+                <br>); 
+            </code>
+        </li>
+        <span><code>e.target</code> hace referencia al elemento del DOM que ejecutó el evento <code>onClick</code></span>
+        <li>Ahora se debe generar una pequeña función para aumentar el contador y otra para disminuir el mismo, esta función se generará antes del <code>return</code> que quedarían así:<br>
+            <code>
+                let valor = 0
+                <br>const aumentarContador = () => {valor++}
+                <br>const disminuirContador = () => {valor--}
+            </code>
+        </li>
+        <li>Se llaman las funciones anteriores desde el botón, de la siguiente manera: <br> 
+            <code>
+                <br>return(
+                    <br>&#60;>
+                    <br>&#60;button onClick{() => aumentarContador()}> + &#60;/button>
+                    <br>{valor}
+                    <br>&#60;button onClick{() => disminuirContador()}> - &#60;/button>
+                    <br>&#60;/>
+                <br>); 
+            </code>
+        </li>
+    </ol>
+    <span class="note">Las 2 formas de agregar eventos en JS era vía <code>getElementById</code> o vía Propiedades (ej: <code>onClick</code>) en React se hace vía <b>elementos en línea</b> y esto es lo que hace que React tenga mejor rendimiento.</span>
+
+    <hr>
+    <h4><a href="../index.html">Volver al Index</a></h4>
+    <hr>
+</body>
+</html>

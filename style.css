@@ -28,11 +28,16 @@ img{
 hr:first-of-type{
     margin-top: 3rem;
 }
-span{
+span, .note{
     display:block;
     background-color: lightgray;
     margin-top: 2rem;
     padding: 2rem 1rem; 
+}
+
+.note{
+    background-color: rgb(245, 246, 197);
+    padding-left: 3rem;
 }
 
 /* EJERCICIOS JS */
